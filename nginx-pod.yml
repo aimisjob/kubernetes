@@ -1,0 +1,10 @@
+apiVersion : v1
+kind : Pod
+metadata :
+ name : love
+spec :
+ containers :
+ - name : life
+   image : nginx
+   ports :
+   - containerPort : 80
