@@ -1,0 +1,18 @@
+apiVersion : extensions/v1beta1
+kind : Deployment
+metadata : 
+  name : khavi
+spec :
+  replicas : 3
+  strategy :
+    type : Recreate
+  template :
+    metadata : 
+      labels :
+        app : ngin
+    spec :
+      containers :
+      - name : swe
+         image : nginx
+         ports :
+         - containerPort : 80
