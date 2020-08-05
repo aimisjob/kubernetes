@@ -1,7 +1,7 @@
 apiVersion : extensions/v1beta1
 kind : Deployment
 metadata : 
-  name : khavi
+  name : swe
 spec :
   replicas : 3
   strategy :
@@ -13,17 +13,13 @@ spec :
     metadata : 
       labels :
         app : ngin
+        ver : "v2"
     spec :
       containers :
       - name : swe
         image : wordpress
         ports :
          - containerPort : 80
-      readinessProbe :
-        httpGet :
-          port : 80
-        initialDelaySeconds : 5
-        periodSeconds : 5  
       
 
 

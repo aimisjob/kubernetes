@@ -13,17 +13,13 @@ spec :
     metadata : 
       labels :
         app : ngin
+        ver : "v1"
     spec :
       containers :
       - name : swe
-        image : wordpress
+        image : nginx
         ports :
          - containerPort : 80
-      readinessProbe :
-        httpGet :
-          port : 80
-        initialDelaySeconds : 5
-        periodSeconds : 5  
       
 
 

@@ -5,7 +5,10 @@ metadata:
 spec:
   replicas: 3
   strategy:
-    type: Recreate
+    type: RollingUpdate
+    rollingUpdate :
+      maxUnavailable : 0
+      maxSurge : 1
   template:
     metadata:
       labels:
@@ -15,4 +18,10 @@ spec:
         - name: ngin
           image: nginx
           ports:
-            - containerPort: 80
+            - containerPort : 80
+        readinessProbe :
+          httpdGet :
+            port : 80
+          intialDelaySeconds : 5
+          periodSeconds : 5
+
