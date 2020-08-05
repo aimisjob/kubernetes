@@ -1,0 +1,21 @@
+apiVersion : v1
+kind : ReplicationController
+metadata :
+  name : swerc
+spec :
+  replicas : 3
+  template :
+    metadata :
+      name : nginp      
+      labels :
+        app : nginx
+        tier : frontend
+    spec :
+      containers :
+      - name : simple
+        image : nginx
+        ports:
+        - containerPort : 80
+  selector : 
+    app : nginx
+    tier : frontend

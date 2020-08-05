@@ -1,0 +1,29 @@
+apiVersion : apps/v1
+kind : ReplicaSet
+metadata :
+  name : swerc
+  labels :
+   app : nginx
+spec :
+  replicas : 3
+  template :
+    metadata :
+      name : nginp
+      labels :
+        app : nginx
+        tier : frontend
+    spec :
+      containers :
+      - name : simple
+        image : nginx
+        ports:
+        - containerPort : 80
+  selector : 
+   matchLabels :
+    app : nginx
+   matchExpressions : 
+    - {key : tier,operator: In,values: [frontend]}  
+
+
+
+

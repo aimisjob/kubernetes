@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind : Deamonset
+metadate :
+  name : fluentd-ds
+spec :
+  template :
+    metadata :
+      labels :
+        name : fluntd
+  spec :
+    containers :
+    - name : fluentd
+      images : gcr.io/google-conatiners/fluentd-elastichsearc
+  selector :
+    matchLabels :
+      name : fluent
+     
+
+
