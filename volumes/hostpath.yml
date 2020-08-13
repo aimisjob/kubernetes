@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name : work
+spec:
+ containers:
+   - name : mycon
+     image: nginx
+     volumeMounts:
+       - name: myh
+         mountPath: /lia
+ volumes:
+   - name: myh
+     hostPath:
+       path: /dia
+

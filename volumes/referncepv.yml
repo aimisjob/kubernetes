@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name : cat
+spec:
+  containers:
+    - name : myownc
+      image: nginx
+      volumeMounts:
+        - name: testvol
+          mountPath: /test-pdd
+  volumes:
+    - name: testvol
+      persistentVolumeClaim:
+        claimName: mypvc

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name : love
+spec:
+ containers:
+   - name : mycon
+     image: nginx
+     env:
+       - name: xxx
+         valueFrom:
+           configMapKeyRef:
+             name: mycm
+             key: file1.txt
+       - name: yyy
+         valueFrom:
+           configMapKeyRef:
+             name: mycm
+             key: file2.txt
+ restartPolicy: Never

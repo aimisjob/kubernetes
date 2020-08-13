@@ -3,7 +3,7 @@ kind : Deployment
 metadata :
   name : swedpt
   labels :
-   app : nginx-app
+   app : nginxd
 spec :
   replicas : 3
   template :
@@ -13,7 +13,7 @@ spec :
     spec :
       containers :
       - name : simple
-        image : nginx
+        image : nginx:1.7.9
         ports:
         - containerPort : 80
   selector :

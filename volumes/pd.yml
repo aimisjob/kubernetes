@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name : sia
+spec:
+  containers:
+    - name : myown
+      image: nginx
+      volumeMounts:
+        - name: test-vol
+          mountPath: /test-pd
+  volumes: 
+    - name: test-vol
+      gcePersistentDisk:
+        pdName: swe
+        fsType: ext4

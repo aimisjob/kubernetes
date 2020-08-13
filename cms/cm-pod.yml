@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name : luck
+spec:
+ containers: 
+   - name : mycon
+     image: nginx
+     volumeMounts: 
+       - name: myvol
+         mountPath: /sia
+         readOnly: true
+ volumes:
+   - name: myvol
+     configMap:
+       name: mycm
+       items:
+         - key: file1.txt
+           path: main.txt
+         - key: file2.txt
+           path: sub.txt
+    

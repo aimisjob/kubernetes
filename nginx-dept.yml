@@ -18,6 +18,6 @@ spec :
     spec :
       containers:
       - name : ngin
-        image : nginx
+        image : wordpress
         ports :
         - containerPort : 80
